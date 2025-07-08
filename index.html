@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Egg Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Start Page -->
+    <section id="start-page" class="page active">
+      <h1 class="title">Egg Pomodoro Timer</h1>
+      <div class="egg-icon">
+        <i class="fas fa-egg fa-6x"></i>
+      </div>
+      <button id="start-btn" class="btn">Start</button>
+    </section>
+
+    <!-- Android Medium 2 Page: Select Egg or Custom -->
+    <section id="select-egg-page" class="page">
+      <h2 class="title">Select Your Egg</h2>
+      <div class="egg-options grid-container">
+        <div class="egg-block">
+          <div class="egg-image runny-egg"></div>
+          <button class="btn egg-choice" data-choice="runny">Runny Egg (4 min)</button>
+        </div>
+        <div class="egg-block">
+          <div class="egg-image soft-egg"></div>
+          <button class="btn egg-choice" data-choice="soft">Soft Boiled (6 min)</button>
+        </div>
+        <div class="egg-block">
+          <div class="egg-image hard-egg"></div>
+          <button class="btn egg-choice" data-choice="hard">Hard Boiled (10 min)</button>
+        </div>
+        <div class="egg-block">
+          <div class="egg-image sunny-egg"></div>
+          <button class="btn egg-choice" data-choice="sunny">Sunny Side Up (5 min)</button>
+        </div>
+        <div class="egg-block">
+          <button class="btn egg-choice" data-choice="custom">Custom Time</button>
+        </div>
+      </div>
+      <button id="back-to-start" class="btn btn-secondary">Back</button>
+    </section>
+
+    <!-- Frame 1: Custom Time Selection -->
+    <section id="custom-time-page" class="page">
+      <h2 class="title">Set Custom Time (minutes)</h2>
+      <input
+        type="number"
+        id="custom-time-input"
+        min="1"
+        max="180"
+        value="25"
+        aria-label="Custom time in minutes"
+      />
+      <button id="custom-start-btn" class="btn">Start</button>
+      <button id="back-to-select" class="btn btn-secondary">Back</button>
+    </section>
+
+    <!-- Android Medium Page: Timer Running -->
+    <section id="timer-page" class="page">
+      <h2 class="title">Pomodoro Timer</h2>
+      <div class="egg-cooking-container" aria-label="Egg cooking progress">
+        <i class="fas fa-egg fa-9x egg-cooking"></i>
+        <i class="fas fa-smile fa-9x egg-cooked" style="display:none; color:#f8b500;"></i>
+      </div>
+      <div class="timer-display" aria-live="polite" aria-atomic="true">25:00</div>
+      <div class="timer-controls">
+        <button id="pause-btn" class="btn"><i class="fas fa-pause"></i> Pause</button>
+        <button id="resume-btn" class="btn" style="display:none;"><i class="fas fa-play"></i> Resume</button>
+        <button id="reset-btn" class="btn btn-secondary">Reset</button>
+        <button id="back-to-select-from-timer" class="btn btn-secondary">Back</button>
+      </div>
+      <audio id="timer-end-sound" src="https://actions.google.com/sounds/v1/household/microwave_beep.ogg" preload="auto" ></audio>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
